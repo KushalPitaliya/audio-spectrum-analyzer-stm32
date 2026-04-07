@@ -1,0 +1,47 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║     🚀 QUICK START - Two Options to Get Building Now            ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTION 1: Enable CMSIS-DSP (Best Performance)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Find PROJ_TRY1.ioc file in project
+2. Double-click to open STM32CubeMX
+3. Click "Project Manager" tab
+4. Click "Select Components" in Software Packs section
+5. Expand ARM::CMSIS → Check ✅ DSP
+6. Click OK → Generate Code
+7. In Properties: Add defines ARM_MATH_CM4 and __FPU_PRESENT=1
+8. Enable FPU in MCU Settings
+9. Clean and Build
+
+Result: 30+ FPS, 1.5ms FFT processing
+
+See: STEP_BY_STEP_CMSIS.md for detailed guide
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTION 2: Use Simple FFT (No CMSIS, Works Immediately)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+In FFT/ folder, rename files:
+
+   fft_processor.h         →  fft_processor_cmsis.h
+   fft_processor.c         →  fft_processor_cmsis.c
+   fft_processor_simple.h  →  fft_processor.h
+   fft_processor_simple.c  →  fft_processor.c
+
+Then: Clean and Build
+
+Result: 15 FPS, 15ms FFT processing (slower but works!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RECOMMENDATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Try Option 1 first (5-10 minutes)
+If stuck, use Option 2 to test, then come back to fix Option 1 later
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

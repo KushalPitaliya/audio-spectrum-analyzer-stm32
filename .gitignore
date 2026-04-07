@@ -1,0 +1,47 @@
+# ============================================
+# STM32 Audio Spectrum Analyzer — .gitignore
+# ============================================
+
+# macOS
+.DS_Store
+._*
+
+# STM32CubeIDE build artifacts
+Debug/
+Release/
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.log
+*.su
+
+# IDE settings (optional — include if you want reproducible builds)
+# .settings/
+# .cproject
+# .project
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Object files
+*.obj
+*.ko
+
+# Archives
+*.a
+*.la
+*.lai
+*.lib
+
+# Shared objects
+*.so
+*.so.*
+*.dll
+*.dylib
