@@ -15,18 +15,18 @@
  *   INMP441:
  *     VDD → 3.3V,  GND → GND
  *     WS  → PA4  (I2S2_WS)
- *     SCK → PB10 (I2S2_CK)
+ *     SCK → PB13 (I2S2_CK)  ← NOT PB10 (reserved for I2C2_SCL)
  *     SD  → PC3  (I2S2_SD)
  *     L/R → GND  (Left channel)
  *
  *   SSD1306 (I2C2):
  *     VCC → 3.3V,  GND → GND
- *     SCL → PB10 (I2C2_SCL)
+ *     SCL → PB10 (I2C2_SCL)  ← PB10 used here exclusively
  *     SDA → PB3  (I2C2_SDA)
  *
- * NOTE: PB10 is shared between I2S2_CK and I2C2_SCL in the pin table.
- *       Verify your CubeMX pin assignments — you may need to remap
- *       I2S2 clock to a different pin if there's a conflict.
+ * PIN CONFLICT RESOLVED:
+ *   I2S2_CK uses PB13 (not PB10) so PB10 is free for I2C2_SCL.
+ *   Both signals have AF5/AF4 on these pins per STM32F411 datasheet.
  *
  * SETUP:
  *   1. Copy MIC/, OLED/, FFT/, SPECTRUM/, DISPLAY/ into Core/ of your project

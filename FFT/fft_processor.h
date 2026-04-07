@@ -3,14 +3,18 @@
 
 #include "main.h"
 #include <stdint.h>
-#include "arm_math.h"   /* Defines float32_t as 'float' — compatible with float* */
+#include "arm_math.h"         /* Defines float32_t as 'float' — compatible with float* */
+#include "audio_config.h"    /* Single source of truth for AUDIO_FRAME_SIZE */
 
 /* -----------------------------------------------------------------------
- * Configuration
+ * Configuration — derived from audio_config.h (DO NOT edit here)
  * ----------------------------------------------------------------------- */
-#define FFT_SIZE            512     /* Must match MIC_BUFFER_SIZE */
-#define FFT_BINS            (FFT_SIZE / 2)
-#define SAMPLE_RATE         44100   /* Hz - must match I2S config */
+#define FFT_SIZE            AUDIO_FRAME_SIZE          /* Must match MIC_BUFFER_SIZE  */
+#define FFT_BINS            (FFT_SIZE / 2)            /* Usable bins (Nyquist limit) */
+#define SAMPLE_RATE         AUDIO_SAMPLE_RATE         /* Hz — must match I2S config  */
+
+/* Compile-time contract: FFT_SIZE must be power of 2 and match shared config */
+_AUDIO_CONFIG_STATIC_CHECK;
 
 /* -----------------------------------------------------------------------
  * FFT Buffers - accessible from application

@@ -67,7 +67,7 @@ INMP441          STM32F411
 VDD     ────────► 3.3V
 GND     ────────► GND
 WS      ────────► PA4  (I2S2_WS)
-SCK     ────────► PB10 (I2S2_CK)
+SCK     ────────► PB13 (I2S2_CK)  ← NOT PB10 (conflict with I2C2)
 SD      ────────► PC3  (I2S2_SD)
 L/R     ────────► GND  (Left channel)
 ```

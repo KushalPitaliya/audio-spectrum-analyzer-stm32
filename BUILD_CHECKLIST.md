@@ -127,17 +127,12 @@ Print this page and check off each item as you complete it.
 ```
 [ ] Verify I2S2 pins:
     [ ] PA4  = I2S2_WS
-    [ ] PB10 = I2S2_CK  
+    [ ] PB13 = I2S2_CK  ← NOT PB10 (that's I2C2_SCL)
     [ ] PC3  = I2S2_SD
 
-[ ] Verify SPI1 pins:
-    [ ] PA5  = SPI1_SCK
-    [ ] PA7  = SPI1_MOSI
-
-[ ] Verify SSD1306 control pins (match ssd1306_conf.h):
-    [ ] PA15 = GPIO_Output (CS)
-    [ ] PB3  = GPIO_Output (DC)
-    [ ] PB4  = GPIO_Output (RST)
+[ ] Verify I2C2 pins:
+    [ ] PB10 = I2C2_SCL  ← Exclusively for OLED
+    [ ] PB3  = I2C2_SDA
 ```
 
 ### Clock Configuration
@@ -225,20 +220,17 @@ Print this page and check off each item as you complete it.
 [ ] VDD → STM32 3.3V
 [ ] GND → STM32 GND
 [ ] WS  → STM32 PA4 (I2S2_WS)
-[ ] SCK → STM32 PB10 (I2S2_CK)
+[ ] SCK → STM32 PB13 (I2S2_CK)  ← NOT PB10
 [ ] SD  → STM32 PC3 (I2S2_SD)
 [ ] L/R → GND (left channel)
 ```
 
 ### SSD1306 OLED Display
 ```
-[ ] VCC  → STM32 3.3V
-[ ] GND  → STM32 GND
-[ ] SCK  → STM32 PA5 (SPI1_SCK)
-[ ] MOSI → STM32 PA7 (SPI1_MOSI)
-[ ] CS   → STM32 PA15 (GPIO)
-[ ] DC   → STM32 PB3 (GPIO)
-[ ] RST  → STM32 PB4 (GPIO)
+[ ] VCC → STM32 3.3V
+[ ] GND → STM32 GND
+[ ] SCL → STM32 PB10 (I2C2_SCL)
+[ ] SDA → STM32 PB3  (I2C2_SDA)
 ```
 
 ### Power Supply
