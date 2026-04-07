@@ -3,7 +3,7 @@
 
 #include "main.h"
 #include <stdint.h>
-#include "arm_math.h"
+#include "arm_math.h"   /* Defines float32_t as 'float' — compatible with float* */
 
 /* -----------------------------------------------------------------------
  * Configuration
